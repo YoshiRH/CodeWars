@@ -1,0 +1,32 @@
+class Solution {
+public:
+    string reverseWords(string s) {
+        string full;
+        string word;
+
+        for(int i=s.length()-1; i>=0; i--){
+            
+            if(s[i] == ' '){
+                if(!word.empty()){
+                    reverse(word.begin(),word.end());
+                    word += s[i];
+                    full += word;
+                    word.clear();
+                }
+            }
+            else{
+                word += s[i];
+            }
+
+        }
+
+        reverse(word.begin(),word.end());
+        full += word;
+
+        if(full[full.length()-1] == ' '){
+            full.erase(full.begin() + full.length()-1);
+        }
+
+        return full;
+    }
+};
