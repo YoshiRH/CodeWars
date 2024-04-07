@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        string newString{};
+    
+        //A for loop to fing matching letters from two strings and removing one from magazine if the char is found.
+        for(int i=0; i < ransomNote.size(); i++){
+            auto it = magazine.find(ransomNote[i]);
+
+            if(it != string::npos){
+                newString += ransomNote[i];
+                magazine.erase(it,1);
+            }
+        }
+
+        //Checking if a newString is the same as the ransomNote (our target)
+        if(newString == ransomNote) return true;
+        else return false;
+
+    }
+};
