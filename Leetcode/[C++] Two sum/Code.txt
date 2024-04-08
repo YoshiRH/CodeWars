@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+	//Creating two integers to store begin and end of the vector nums
+        int i{0};
+        int j = nums.size()-1;
+
+	//Creating a while loop to calculate a desired number to sum and checking if the 	  number is in the vector.
+        while(i<=j){
+            int final = target-nums[i];
+            auto it = find(nums.begin()+1+i,nums.end(),final);
+
+            if(it!=nums.end()){
+                int index = it - nums.begin();
+                return {i,index};
+            }
+            
+            i++;
+        }
+        return {0,0};
+    }
+};
